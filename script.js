@@ -1,9 +1,24 @@
-const container = document.querySelector(".container");
-container.appendChild(grid);
+const container = document.querySelector("#container");
 
-const grid = document.createElement("div");
-grid.classList.add("grid");
-grid.style.width = "16px";
-grid.style.height = "16px";
-grid.style.border = "2px solid white";
 
+
+function createGrid(gridSize){
+    for (let i = 0; i < gridSize; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < gridSize; j++){
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            row.appendChild(cell);
+        }
+        container.appendChild(row);
+    }
+    container.addEventListener("mouseover", (e) => {
+        if (e.target.classList.contains('cell')){
+            const cells = e.target;
+            cells.style.backgroundColor = "gold";
+        };
+    })
+}
+
+createGrid(20);

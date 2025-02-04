@@ -1,0 +1,25 @@
+body, html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 100vh;
+}
+
+#container {
+   border: 2px solid blue;
+   display: flex;
+}
+
+
+
+.cell {
+    border: 1px solid white;
+    flex: 1;
+    padding: 20px;
+    
+}
+
+.cell:hover{
+    background-color: gold;
+}
