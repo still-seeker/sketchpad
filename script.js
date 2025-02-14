@@ -1,6 +1,7 @@
 const container = document.querySelector("#container");
 
 function createGrid(gridSize){
+    rowSize = 500 / gridSize;
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement("div");
         row.classList.add("row");
@@ -9,8 +10,8 @@ function createGrid(gridSize){
             cell.classList.add("cell");
             row.appendChild(cell);
         }
-        row.style.width = `calc(100% / ${gridSize})`;
-        row.style.height = `calc(100% / ${gridSize})`;
+        // row.style.width = `(${rowSize}px`;
+        // row.style.height = `(${rowSize}px`;
         container.appendChild(row);
     }
     container.addEventListener("mouseover", (e) => {
@@ -42,14 +43,12 @@ function removeGrid(){
 
 function erase(){
     const grids = document.querySelectorAll(".row");
-    while(true){
-        grids.addEventListener("mouseover", (e) => {
-            if (e.target.classList.contains('cell')){
-                const cells = e.target;
-                cells.style.backgroundColor = "none";
-            };
-        });
+    
+    if (grids.contains(style.backgroundColor)){
+        const cells = document.querySelectorAll(".cell");
+        cells.style.backgroundColor = "none";
     }
+    
 }
 
 const gridSet = document.querySelector(".gridSet");

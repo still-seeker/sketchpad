@@ -15,13 +15,13 @@ body, html{
 .buttons {
     display: flex;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 20PX;
 }
 
 
 
 .cell {
-    border: 1px solid white;
+    border: 1px solid rgb(165, 109, 109);
     flex: 1;
     padding: 20px;
     
