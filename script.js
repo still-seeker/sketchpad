@@ -1,21 +1,21 @@
 const container = document.querySelector("#container");
 
+
+/**This function generates the grid size according to user input */
 function createGrid(gridSize){
-    rowSize = 500 / gridSize;
-    for (let i = 0; i < gridSize; i++) {
+    
+    for (let i = 0; i < (gridSize * gridSize); i++) {
         const row = document.createElement("div");
         row.classList.add("row");
-        for (let j = 0; j < gridSize; j++){
-            const cell = document.createElement("div");
-            cell.classList.add("cell");
-            row.appendChild(cell);
-        }
-        // row.style.width = `(${rowSize}px`;
-        // row.style.height = `(${rowSize}px`;
+        
+        row.style.width = `calc(100% / ${gridSize})`;
+        row.style.height = `calc(100% / ${gridSize})`;
         container.appendChild(row);
     }
+
+    //an event listener for a mouseover event in the container
     container.addEventListener("mouseover", (e) => {
-        if (e.target.classList.contains('cell')){
+        if (e.target.classList.contains('row')){
             const cells = e.target;
             cells.style.backgroundColor = "gold";
         };
@@ -42,14 +42,29 @@ function removeGrid(){
 }
 
 function erase(){
-    const grids = document.querySelectorAll(".row");
     
-    if (grids.contains(style.backgroundColor)){
-        const cells = document.querySelectorAll(".cell");
-        cells.style.backgroundColor = "none";
-    }
     
 }
+
+function randomColor() {
+    
+    let R = Math.floor(Math.random() * 256);
+    let G = Math.floor(Math.random() * 256);
+    let B = Math.floor(Math.random() * 256);
+    return `rgb(${R}, ${G}, ${B})`;   
+}
+console.log(randomColor())
+
+function getRandomColor() {
+    let container = document.querySelector("#container");
+    container.addEventListener("mouseover" , (e) => {
+        if (e.target.classList.contains('row')){
+            const cells = e.target;
+            cells.style.backgroundColor = randomColor();
+        };
+    })
+}
+
 
 const gridSet = document.querySelector(".gridSet");
 gridSet.addEventListener("click", changeGrid);
@@ -57,4 +72,8 @@ gridSet.addEventListener("click", changeGrid);
 const eraser = document.querySelector(".eraser");
 eraser.addEventListener("click", erase);
 
+const mixedColor = document.querySelector(".random");
+mixedColor.addEventListener("click", getRandomColor);
+
+//initial grid size
 createGrid(16);
