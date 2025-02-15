@@ -21,14 +21,9 @@ body, html{
     margin-top: 20px;
 }
 
-
-
-/* .cell {
-    border: 1px solid white;
-    flex: 1;
-    padding: 20px;
-    
-} */
+h1{
+    color: darkcyan;
+}
 
 .row {
     border: white;
@@ -42,10 +37,14 @@ body, html{
 }
 
 .eraser {
-    background-color: white;
+    background-color: rgb(68, 19, 19);
     color: blue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
+}
+
+.random {
+    background-color: rgb(31, 33, 1);
 }
 
 button{
