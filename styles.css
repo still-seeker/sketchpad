@@ -38,13 +38,15 @@ h1{
 
 .eraser {
     background-color: rgb(68, 19, 19);
-    color: blue;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
 }
 
 .random {
     background-color: rgb(31, 33, 1);
+    color: white;
+    font-weight: 400;
 }
 
 button{
